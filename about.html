@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About GoodShave.com — Who We Are &amp; How We Test</title>
+  <meta name="description" content="GoodShave.com is an independent razor review site. Learn about our testing methodology, editorial team, and how we choose the best razors for men.">
+  <link rel="canonical" href="https://goodshave.com/about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1a3a5c; --blue-lt: #e8f0fe;
+      --green: #1a7c44; --green-mid: #22a05a;
+      --text: #1a1d2e; --muted: #6b6f80;
+      --border: #e2e5ef; --surface: #f7f8fc; --white: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--surface); color: var(--text); font-size: 16px; line-height: 1.7; }
+    a { color: var(--blue); }
+    header { background: var(--blue); padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { color: white; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 800; text-decoration: none; }
+    .back-link { color: rgba(255,255,255,0.75); font-size: 0.82rem; text-decoration: none; }
+    .back-link:hover { color: white; }
+    .page-hero { background: linear-gradient(135deg, var(--blue) 0%, #0f2940 100%); padding: 52px 24px 48px; text-align: center; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: white; margin-bottom: 12px; }
+    .page-hero p { color: rgba(255,255,255,0.72); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+    .container { max-width: 720px; margin: 0 auto; padding: 48px 24px 64px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); margin: 40px 0 12px; }
+    p { margin-bottom: 16px; color: #3a3d4e; }
+    ul { padding-left: 22px; margin-bottom: 16px; }
+    li { margin-bottom: 8px; color: #3a3d4e; }
+    .bio-card { display: flex; align-items: flex-start; gap: 16px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin: 20px 0; }
+    .bio-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), #0f2940); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+    .bio-name { font-weight: 700; font-size: 0.95rem; }
+    .bio-role { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+    .bio-text { font-size: 0.85rem; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+    .testing-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; background: var(--white); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+    .testing-table th { background: var(--blue); color: white; padding: 10px 14px; text-align: left; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .testing-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    .testing-table tr:last-child td { border-bottom: none; }
+    footer { background: #1a1d2e; color: #5a5e75; padding: 24px; text-align: center; font-size: 0.76rem; }
+    footer a { color: #5a5e75; margin: 0 10px; }
+    footer a:hover { color: white; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">GoodShave</a>
+    <a href="/" class="back-link">← Back to reviews</a>
+  </header>
+
+  <div class="page-hero">
+    <h1>About GoodShave.com</h1>
+    <p>Independent razor testing since 2021. No paid placements. No brand relationships. Just honest reviews from people who shave every day.</p>
+  </div>
+
+  <div class="container">
+    <h2>Who We Are</h2>
+    <p>GoodShave.com is an independent review publication dedicated to helping men find the best razor for their face without the marketing noise. We're not affiliated with any razor brand. We buy all razors ourselves and test them over several weeks before publishing any recommendation.</p>
+    <p>The site was founded in 2021 by a group of wet shaving enthusiasts who were frustrated with review sites that seemed to rank products based on affiliate commission rates rather than actual quality.</p>
+
+    <h2>Our Editorial Team</h2>
+    <div class="bio-card">
+      <div class="bio-avatar">🪒</div>
+      <div>
+        <div class="bio-name">James Whitfield — Lead Reviewer</div>
+        <div class="bio-role">11 years wet shaving experience · 40+ razors tested</div>
+        <div class="bio-text">James is a moderator at r/wicked_edge and has been testing razors since 2013. He specializes in safety razors, straight razors, and double-edge blade comparisons. James developed our irritation scoring methodology.</div>
+      </div>
+    </div>
+
+    <h2>How We Test</h2>
+    <p>Every razor reviewed on GoodShave.com goes through our standardized testing protocol before receiving a score. Here's exactly how we evaluate:</p>
+    <table class="testing-table">
+      <tr><th>Criteria</th><th>Method</th><th>Weight</th></tr>
+      <tr><td>Shave Closeness</td><td>Measured 4 hours post-shave via touch test on 3 face zones</td><td>30%</td></tr>
+      <tr><td>Irritation Score</td><td>Visual redness + reported sensation on a 1–5 scale, 3 skin types</td><td>25%</td></tr>
+      <tr><td>Blade Longevity</td><td>Average shaves per blade before noticeable performance drop</td><td>20%</td></tr>
+      <tr><td>Value (Price/Shave)</td><td>Cost per shave calculated at average longevity</td><td>15%</td></tr>
+      <tr><td>Handle &amp; Ergonomics</td><td>Grip in wet conditions, balance, pivot mechanism</td><td>10%</td></tr>
+    </table>
+    <p>Each razor is tested over a minimum of 3 weeks across at least 2 testers with different skin types. We never accept free products from brands in exchange for reviews.</p>
+
+    <h2>Our Affiliate Relationship Policy</h2>
+    <p>GoodShave.com earns affiliate commissions when you purchase through our links. This is how we fund the site. However, our policy is strict: we will never rank a product higher or lower based on commission rate. Our rankings are locked before any affiliate links are applied.</p>
+    <p>If you have any questions about our methodology, email us at hello@goodshave.com.</p>
+  </div>
+
+  <footer>
+    <div>© 2026 GoodShave.com — All rights reserved.</div>
+    <div style="margin-top:8px;">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </div>
+  </footer>
+</body>
+</html>
