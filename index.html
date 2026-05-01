@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="fo-verify" content="f9d2fd9f-6bbf-479b-ba65-94b779088ecb" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-75T6MJTKLR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-75T6MJTKLR');
+    </script>
   <script type="text/javascript">(function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7254083-4d37-4077-bee2-970ea36fcb761.js','script','impactStat',document,window);impactStat('transformLinks');impactStat('trackImpression');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -761,7 +770,24 @@
     .longtail-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .longtail-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
     .longtail-card a { color: var(--gold); font-size: 0.8rem; font-weight: 600; }
-  </style>
+  
+    /* ── Comparison Table ── */
+    .comparison-table { width:100%; border-collapse:collapse; max-width:860px; margin:0 auto; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.08); }
+    .comparison-table th, .comparison-table td { padding:13px 16px; text-align:center; border-bottom:1px solid #eee; font-size:.88rem; color:#222; }
+    .comparison-table thead th { background:#1a1a1a; color:#fff; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.5px; }
+    .comparison-table thead th:first-child { text-align:left; }
+    .comparison-table td:first-child { text-align:left; font-weight:500; color:#444; }
+    .comparison-table tbody tr:last-child td { border-bottom:none; }
+    .comparison-table tbody tr:hover { background:#f9f9f9; }
+    .winner-badge { display:inline-block; background:#2ecc71; color:#fff; font-size:.68rem; font-weight:700; padding:2px 6px; border-radius:8px; margin-left:5px; text-transform:uppercase; }
+    .comp-check { color:#2ecc71; font-size:1.05rem; }
+    .comp-x { color:#e74c3c; font-size:1.05rem; }
+    /* Quiz step visibility */
+    .quiz-step { display:none; }
+    .quiz-step.active { display:block; }
+    @media(max-width:600px){ .comparison-table th,.comparison-table td{padding:9px 7px;font-size:.76rem;} }
+
+    </style>
 </head>
 <body>
 
@@ -849,7 +875,43 @@
     </div>
 
     <!-- PRODUCT REVIEWS -->
-    <div class="section">
+    
+    <!-- ── Comparison Table ── -->
+    <div class="section" id="comparison">
+      <div class="section-header">
+        <div class="section-eyebrow">Side-by-Side</div>
+        <h2 class="section-title">How the Top Razors Stack Up</h2>
+        <div class="section-sub">Key factors that matter most — at a glance</div>
+      </div>
+      <div style="overflow-x:auto;margin-top:20px;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Harry's Truman</th>
+              <th>Dollar Shave Club</th>
+              <th>Merkur 34C</th>
+              <th>Gillette SkinGuard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Our Rating</td><td>⭐ 4.8/5</td><td>⭐ 4.3/5</td><td>⭐ 4.9/5</td><td>⭐ 4.2/5</td></tr>
+            <tr><td>Blade Cost / Year</td><td>~$60–80</td><td>~$50–70</td><td>~$12–20 <span class="winner-badge">Best</span></td><td>~$80–100</td></tr>
+            <tr><td>Handle Cost</td><td>~$12 (kit)</td><td>~$5 (kit)</td><td>~$45</td><td>~$15</td></tr>
+            <tr><td>Blade Type</td><td>Cartridge (5-blade)</td><td>Cartridge (6-blade)</td><td>Double-edge <span class="winner-badge">Eco</span></td><td>Cartridge (2-blade)</td></tr>
+            <tr><td>Sensitive Skin</td><td><span class="comp-check">✓</span></td><td><span class="comp-check">✓</span></td><td><span class="comp-check">✓</span></td><td><span class="comp-check">✓ Best</span></td></tr>
+            <tr><td>Beginner Friendly</td><td><span class="comp-check">✓</span></td><td><span class="comp-check">✓</span></td><td>Learning curve</td><td><span class="comp-check">✓</span></td></tr>
+            <tr><td>Plastic-Free</td><td><span class="comp-x">✗</span></td><td><span class="comp-x">✗</span></td><td><span class="comp-check">✓</span></td><td><span class="comp-x">✗</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align:center;margin-top:18px;font-size:.85rem;color:#888;">
+        Want to compare more options including budget DE blades?
+        <a href="https://cheaprazors.com" style="color:var(--gold);font-weight:700;">See full comparison at CheapRazors.com →</a>
+      </p>
+    </div>
+
+<div class="section">
       <div class="section-header">
         <div class="section-eyebrow">2026 Rankings</div>
         <h2 class="section-title">Our Top Razor Picks for 2026</h2>
@@ -1145,7 +1207,7 @@
     <div class="email-capture">
       <h3>Get our monthly shaving tips &amp; deals</h3>
       <p>Blade deals, technique guides, and new product reviews — no spam, unsubscribe any time.</p>
-      <form class="email-form" action="https://cheapeatsguelph.us2.list-manage.com/subscribe/post?u=567cda6751b8e8967d9ee6807&amp;id=8e060177a8" method="post" target="_blank" novalidate>
+      <form class="email-form" action="#" onsubmit="this.querySelector('button[type=submit]').textContent='Thanks! We\'ll be in touch.'; return false;" method="post" target="_blank" novalidate>
         <input type="email" name="EMAIL" placeholder="your@email.com" aria-label="Email address" required>
         <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_567cda6751b8e8967d9ee6807_8e060177a8" tabindex="-1" value=""></div>
         <button type="submit">Subscribe →</button>
