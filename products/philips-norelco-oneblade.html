@@ -59,6 +59,8 @@
     .rank-pill { display: inline-block; background: var(--card); border: 1px solid var(--gold-dim); color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; margin-bottom: 14px; }
     h1.product-h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.5rem); color: #fff; margin-bottom: 10px; line-height: 1.25; }
     .product-tagline-hero { color: #c0bfba; font-size: 1.05rem; margin-bottom: 14px; }
+    .product-hero-img { border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; border: 1px solid var(--border); background: var(--card); }
+    .product-hero-img img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; object-position: center; display: block; }
     .rating-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
     .rating-stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 1px; }
     .rating-num { font-size: 0.85rem; color: var(--muted); }
@@ -149,6 +151,7 @@
   <div class="product-hero">
     <span class="rank-pill">#6 Best Electric-Hybrid Crossover · Razors</span>
     <h1 class="product-h1">Philips Norelco OneBlade</h1>
+    <div class="product-hero-img"><img src="/images/products/philips-norelco-oneblade.jpg" alt="Philips Norelco OneBlade" loading="lazy" width="760" height="428"></div>
     <p class="product-tagline-hero">One tool for trimming, edging, and shaving — no wet-shaving fuss</p>
     <div class="rating-row"><span class="rating-stars">★★★★☆</span><span class="rating-num">4.4/5 — GoodShave Editorial Rating</span></div>
   </div>
