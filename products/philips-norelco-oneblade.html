@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-75T6MJTKLR"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-75T6MJTKLR');
-  </script>
-  <script type="text/javascript">(function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7254083-4d37-4077-bee2-970ea36fcb761.js','script','impactStat',document,window);impactStat('transformLinks');impactStat('trackImpression');</script>
+  (function(){
+    function loadTracking(){
+      var g = document.createElement('script');
+      g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=G-75T6MJTKLR';
+      document.head.appendChild(g);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-75T6MJTKLR');
+      (function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement('script');var z=a.getElementsByTagName('script')[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7254083-4d37-4077-bee2-970ea36fcb761.js','script','impactStat',document,window);
+      window.impactStat('transformLinks');
+      window.impactStat('trackImpression');
+    }
+    window.__ccLoadTracking = loadTracking;
+    var consent = localStorage.getItem('cc-consent');
+    if (consent === 'granted') {
+      loadTracking();
+    } else if (consent !== 'declined') {
+      window.__ccShowBanner = true;
+    }
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Philips Norelco OneBlade Review (2026) — Trim, Edge, and Shave in One Tool | GoodShave</title>
@@ -142,23 +158,64 @@
     .related-grid { display: flex; flex-wrap: wrap; gap: 10px; }
     .related-grid a { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 9px 14px; font-size: 0.85rem; color: var(--text); }
     .related-grid a:hover { border-color: var(--gold-dim); color: var(--gold); }
+    .cc-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--surface); border-top: 1px solid var(--border); padding: 14px 20px; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; box-shadow: 0 -4px 20px rgba(0,0,0,0.35); }
+    .cc-banner p { color: var(--muted); font-size: 0.82rem; margin: 0; flex: 1; min-width: 220px; }
+    .cc-banner a { color: var(--gold); text-decoration: underline; }
+    .cc-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .cc-btn { padding: 8px 16px; border-radius: 5px; font-size: 0.82rem; font-weight: 700; cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+    .cc-accept { background: var(--gold); color: var(--bg); }
+    .cc-accept:hover { background: var(--gold-lt); }
+    .cc-decline { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+    .cc-decline:hover { border-color: var(--gold-dim); color: var(--gold); }
+    .cc-prefs-link { background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
     footer { background: var(--surface); border-top: 1px solid var(--border); padding: 32px 24px 28px; text-align: center; }
     .footer-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 12px; }
     .footer-disclaimer { font-size: 0.76rem; color: var(--muted); max-width: 560px; margin: 0 auto 14px; line-height: 1.55; }
     .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
     .footer-links a { font-size: 0.76rem; color: var(--muted); }
     .footer-links a:hover { color: var(--gold); }
+    .footer-link-btn { background: none; border: none; padding: 0; font-family: 'Inter', sans-serif; font-size: 0.76rem; color: var(--muted); cursor: pointer; }
+    .footer-link-btn:hover { color: var(--gold); }
     .footer-copy { font-size: 0.72rem; color: #4a4a58; }
 </style>
 </head>
 <body>
+  <div id="cc-banner" class="cc-banner">
+    <p>We use cookies for site analytics and affiliate link tracking. <a href="/privacy">Learn more</a>.</p>
+    <div class="cc-actions">
+      <button id="cc-accept" class="cc-btn cc-accept">Accept</button>
+      <button id="cc-decline" class="cc-btn cc-decline">Decline</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var banner = document.getElementById('cc-banner');
+      if (window.__ccShowBanner) { banner.style.display = 'flex'; }
+      document.getElementById('cc-accept').addEventListener('click', function(){
+        localStorage.setItem('cc-consent', 'granted');
+        banner.style.display = 'none';
+        if (window.__ccLoadTracking) window.__ccLoadTracking();
+      });
+      document.getElementById('cc-decline').addEventListener('click', function(){
+        localStorage.setItem('cc-consent', 'declined');
+        banner.style.display = 'none';
+      });
+      var prefsLinks = document.querySelectorAll('.cc-prefs-link');
+      for (var i = 0; i < prefsLinks.length; i++) {
+        prefsLinks[i].addEventListener('click', function(e){
+          e.preventDefault();
+          banner.style.display = 'flex';
+        });
+      }
+    });
+  </script>
   <div id="progress-bar"></div>
   <div class="disclosure-bar">We earn a small commission on purchases through our links — at no extra cost to you. <a href='/disclaimer'>Full disclosure</a>. This review reflects independent testing, not commission rates.</div>
   <header>
     <a href="/" style="text-decoration:none;">
       <div class="logo-wrap"><div class="logo">GoodShave</div><div class="logo-divider"></div><div class="logo-tag">The Shaving Authority</div></div>
     </a>
-    <a href="https://www.amazon.ca/s?k=philips+norelco+oneblade&tag=gshave-20" class="header-cta" rel="nofollow sponsored" target="_blank">Check Price →</a>
+    <a href="https://www.amazon.com/s?k=philips+norelco+oneblade&tag=gshave-20" class="header-cta" rel="nofollow sponsored" target="_blank">Check Price →</a>
   </header>
   <nav class="category-nav"><div class="category-nav-inner">
     <a href="/">Home</a>
@@ -187,7 +244,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Works wet or dry with minimal irritation</li><li>Trims, edges, and shaves in one tool</li><li>Interchangeable length combs</li><li>Fully waterproof and rinses clean</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Replacement blades add ongoing cost (~$24 for a 2-pack)</li><li>Doesn't shave as close as a cartridge razor</li><li>No catch tray — clippings scatter</li></ul></div>
             </div>
-      <a href="https://www.amazon.ca/s?k=philips+norelco+oneblade&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get the Philips Norelco OneBlade →</a>
+      <a href="https://www.amazon.com/s?k=philips+norelco+oneblade&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get the Philips Norelco OneBlade →</a>
     </div>
 
     <article class="review-body">
@@ -234,7 +291,7 @@
     <div class="cta-banner">
       <h2>Ready to try the Philips Norelco OneBlade?</h2>
       <p>Check current pricing and availability on Amazon.</p>
-      <a href="https://www.amazon.ca/s?k=philips+norelco+oneblade&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank" style="display:inline-block;max-width:320px;">Get the Philips Norelco OneBlade →</a>
+      <a href="https://www.amazon.com/s?k=philips+norelco+oneblade&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank" style="display:inline-block;max-width:320px;">Get the Philips Norelco OneBlade →</a>
     </div>
 
     <div class="related-links">
@@ -261,6 +318,7 @@
       <a href='/privacy'>Privacy Policy</a>
       <a href='/disclaimer'>Disclaimer</a>
       <a href='/about'>About</a>
+      <button class="cc-prefs-link footer-link-btn">Cookie Preferences</button>
     </div>
     <div class="footer-copy">© 2026 GoodShave.com — All rights reserved.</div>
     <div style="text-align:center;margin-top:8px;font-size:0.78rem;opacity:0.6;">Built by <a href="https://overhauled.ai" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Overhauled.ai</a></div>
