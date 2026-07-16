@@ -2,15 +2,31 @@
 <html lang="en">
 <head>
     <meta name="fo-verify" content="f9d2fd9f-6bbf-479b-ba65-94b779088ecb" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-75T6MJTKLR"></script>
     <script>
+  (function(){
+    function loadTracking(){
+      var g = document.createElement('script');
+      g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=G-75T6MJTKLR';
+      document.head.appendChild(g);
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){ window.dataLayer.push(arguments); }
+      window.gtag = gtag;
       gtag('js', new Date());
       gtag('config', 'G-75T6MJTKLR');
-    </script>
-  <script type="text/javascript">(function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7254083-4d37-4077-bee2-970ea36fcb761.js','script','impactStat',document,window);impactStat('transformLinks');impactStat('trackImpression');</script>
+      (function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement('script');var z=a.getElementsByTagName('script')[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7254083-4d37-4077-bee2-970ea36fcb761.js','script','impactStat',document,window);
+      window.impactStat('transformLinks');
+      window.impactStat('trackImpression');
+    }
+    window.__ccLoadTracking = loadTracking;
+    var consent = localStorage.getItem('cc-consent');
+    if (consent === 'granted') {
+      loadTracking();
+    } else if (consent !== 'declined') {
+      window.__ccShowBanner = true;
+    }
+  })();
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Complete Shaving Guide for Men (2026) — Razors, Electric Shavers, Trimmers &amp; More | GoodShave</title>
@@ -163,7 +179,7 @@
     .hero {
       background-image:
         radial-gradient(ellipse 120% 80% at 50% 0%, rgba(31,37,64,0.82) 0%, rgba(11,14,24,0.92) 70%),
-        url('https://images.unsplash.com/photo-1621607505082-cba7e6b85c8a?w=1400&auto=format&fit=crop&q=80');
+        url('/images/brand/hero-background.jpg');
       background-size: cover;
       background-position: center 40%;
       padding: 64px 24px 56px;
@@ -684,7 +700,18 @@
     .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; }
     .footer-links a { font-size: 0.76rem; color: var(--muted); }
     .footer-links a:hover { color: var(--gold); }
+    .footer-link-btn { background: none; border: none; padding: 0; font-family: 'Inter', sans-serif; font-size: 0.76rem; color: var(--muted); cursor: pointer; }
+    .footer-link-btn:hover { color: var(--gold); }
     .footer-copy { font-size: 0.72rem; color: #4a4a58; }
+    .cc-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--surface); border-top: 1px solid var(--border); padding: 14px 20px; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; box-shadow: 0 -4px 20px rgba(0,0,0,0.35); }
+    .cc-banner p { color: var(--muted); font-size: 0.82rem; margin: 0; flex: 1; min-width: 220px; }
+    .cc-banner a { color: var(--gold); text-decoration: underline; }
+    .cc-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .cc-btn { padding: 8px 16px; border-radius: 5px; font-size: 0.82rem; font-weight: 700; cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+    .cc-accept { background: var(--gold); color: var(--bg); }
+    .cc-accept:hover { background: var(--gold-lt); }
+    .cc-decline { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+    .cc-decline:hover { border-color: var(--gold-dim); color: var(--gold); }
 
     /* ── CARD IMAGE ── */
     .card-img {
@@ -833,6 +860,36 @@
 </head>
 <body>
 
+  <div id="cc-banner" class="cc-banner">
+    <p>We use cookies for site analytics and affiliate link tracking. <a href="/privacy">Learn more</a>.</p>
+    <div class="cc-actions">
+      <button id="cc-accept" class="cc-btn cc-accept">Accept</button>
+      <button id="cc-decline" class="cc-btn cc-decline">Decline</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var banner = document.getElementById('cc-banner');
+      if (window.__ccShowBanner) { banner.style.display = 'flex'; }
+      document.getElementById('cc-accept').addEventListener('click', function(){
+        localStorage.setItem('cc-consent', 'granted');
+        banner.style.display = 'none';
+        if (window.__ccLoadTracking) window.__ccLoadTracking();
+      });
+      document.getElementById('cc-decline').addEventListener('click', function(){
+        localStorage.setItem('cc-consent', 'declined');
+        banner.style.display = 'none';
+      });
+      var prefsLinks = document.querySelectorAll('.cc-prefs-link');
+      for (var i = 0; i < prefsLinks.length; i++) {
+        prefsLinks[i].addEventListener('click', function(e){
+          e.preventDefault();
+          banner.style.display = 'flex';
+        });
+      }
+    });
+  </script>
+
   <div id="progress-bar"></div>
   <div class="disclosure-bar">We earn a small commission on purchases through our links — at no extra cost to you. <a href='/disclaimer'>Full disclosure</a>. Rankings are based on independent testing, not commission rates.</div>
 
@@ -843,7 +900,7 @@
       <div class="logo-divider"></div>
       <div class="logo-tag">The Shaving Authority</div>
     </div>
-    <a href="https://www.amazon.ca/s?k=gillette+fusion5+proglide+razor&tag=gshave-20" class="header-cta" rel="nofollow sponsored" target="_blank">See #1 Pick →</a>
+    <a href="https://www.amazon.com/s?k=gillette+fusion5+proglide+razor&tag=gshave-20" class="header-cta" rel="nofollow sponsored" target="_blank">See #1 Pick →</a>
   </header>
 
   <!-- CATEGORY NAV -->
@@ -863,7 +920,7 @@
     <div class="eyebrow">2026 Expert Picks</div>
     <h1>The Complete Shaving Guide for Men — <em>Tested &amp; Ranked</em></h1>
     <p class="hero-lede">We tested 31 shaving products over 90+ days — razors, electric shavers, trimmers, cream, and aftershave. Here's what actually gives you a close, irritation-free shave.</p>
-    <a href="https://www.amazon.ca/s?k=gillette+fusion5+proglide+razor&tag=gshave-20" class="btn-hero" rel="nofollow sponsored" target="_blank">See Our #1 Recommended Razor →</a>
+    <a href="https://www.amazon.com/s?k=gillette+fusion5+proglide+razor&tag=gshave-20" class="btn-hero" rel="nofollow sponsored" target="_blank">See Our #1 Recommended Razor →</a>
     <div class="hero-meta">
       Updated July 2026 <span>·</span> 8-minute read <span>·</span> 31 products tested <span>·</span> No paid placements
     </div>
@@ -1022,7 +1079,7 @@
                 </ul>
               </div>
             </div>
-            <a href="https://www.amazon.ca/s?k=gillette+fusion5+proglide+razor&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get the Fusion5 ProGlide on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=gillette+fusion5+proglide+razor&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get the Fusion5 ProGlide on Amazon →</a>
             <a href="/products/gillette-fusion5-proglide.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1074,7 +1131,7 @@
                 </ul>
               </div>
             </div>
-            <a href="https://www.amazon.ca/s?k=gillette+skinguard+razor&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Check Gillette SkinGuard Price →</a>
+            <a href="https://www.amazon.com/s?k=gillette+skinguard+razor&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Check Gillette SkinGuard Price →</a>
           </div>
         </div>
       </div>
@@ -1127,7 +1184,7 @@
                 </ul>
               </div>
             </div>
-            <a href="https://www.amazon.ca/s?k=merkur+34c+safety+razor&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Merkur 34C on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=merkur+34c+safety+razor&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Merkur 34C on Amazon →</a>
             <a href="/products/merkur-34c-safety-razor.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1179,7 +1236,7 @@
                 </ul>
               </div>
             </div>
-            <a href="https://www.amazon.ca/s?k=rockwell+2c+safety+razor&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Rockwell 2C on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=rockwell+2c+safety+razor&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Rockwell 2C on Amazon →</a>
             <a href="/products/rockwell-2c-safety-razor.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1231,7 +1288,7 @@
                 </ul>
               </div>
             </div>
-            <a href="https://www.amazon.ca/s?k=bic+flex+5+hybrid+razor&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the BIC Flex 5 on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=bic+flex+5+hybrid+razor&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the BIC Flex 5 on Amazon →</a>
           </div>
         </div>
       </div>
@@ -1282,7 +1339,7 @@
                 </ul>
               </div>
             </div>
-            <a href="https://www.amazon.ca/s?k=philips+norelco+oneblade&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Philips Norelco OneBlade →</a>
+            <a href="https://www.amazon.com/s?k=philips+norelco+oneblade&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Philips Norelco OneBlade →</a>
             <a href="/products/philips-norelco-oneblade.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1334,7 +1391,7 @@
                 </ul>
               </div>
             </div>
-            <a href="https://www.amazon.ca/s?k=parker+srx+shavette&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Parker SRX on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=parker+srx+shavette&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Parker SRX on Amazon →</a>
           </div>
         </div>
       </div>
@@ -1382,7 +1439,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Best closeness of any electric we tested</li><li>Works wet or dry</li><li>Self-cleaning charging station</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Premium price</li><li>Bulkier in-hand than rotary models</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=braun+series+9+pro+plus+electric+shaver&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Check Braun Series 9 Pro+ Price →</a>
+            <a href="https://www.amazon.com/s?k=braun+series+9+pro+plus+electric+shaver&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Check Braun Series 9 Pro+ Price →</a>
             <a href="/products/braun-series-9-pro-plus.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1407,7 +1464,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Excellent price-to-performance</li><li>Longest runtime in this category</li><li>Simple, durable design</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Dry use only</li><li>Less close on coarse necklines</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=andis+resurge+electric+shaver&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Andis ReSurge on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=andis+resurge+electric+shaver&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Andis ReSurge on Amazon →</a>
           </div>
         </div>
       </div>
@@ -1431,7 +1488,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Best contour-following of the three</li><li>Great for coarse or curly facial hair</li><li>Wet/dry flexible</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Slightly louder than foil models</li><li>Replacement heads aren't cheap</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=philips+norelco+shaver+9000&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Check Philips Norelco 9000 Price →</a>
+            <a href="https://www.amazon.com/s?k=philips+norelco+shaver+9000&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Check Philips Norelco 9000 Price →</a>
           </div>
         </div>
       </div>
@@ -1455,7 +1512,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Exceptionally close shave</li><li>Durable, long-lived motor</li><li>Wet/dry flexible with a strong pop-up trimmer</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Doesn't handle flat-lying hair as well as Braun</li><li>Replacement foils and cleaning-station supplies are pricey</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=panasonic+arc5+electric+shaver&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Panasonic Arc5 on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=panasonic+arc5+electric+shaver&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Panasonic Arc5 on Amazon →</a>
             <a href="/products/panasonic-arc5.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1480,7 +1537,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Excellent price-to-performance ratio</li><li>5-minute quick charge</li><li>Fully waterproof, cordless or corded</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Bulkier, less refined build quality</li><li>Foils wear out faster than premium models</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=remington+f5+5800+electric+shaver&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Remington F5-5800 on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=remington+f5+5800+electric+shaver&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Remington F5-5800 on Amazon →</a>
           </div>
         </div>
       </div>
@@ -1504,7 +1561,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Extremely portable without sacrificing closeness</li><li>USB-C charging</li><li>Wet/dry waterproof</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>No integrated beard trimmer</li><li>Manual rinse only, no cleaning station</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=panasonic+es-cm3a+travel+shaver&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Panasonic ES-CM3A on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=panasonic+es-cm3a+travel+shaver&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Panasonic ES-CM3A on Amazon →</a>
           </div>
         </div>
       </div>
@@ -1538,7 +1595,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Does the job of 4 separate tools</li><li>Long battery runtime</li><li>Consistent guard lengths</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Bulkier than single-purpose trimmers</li><li>Attachment heads take a moment to swap</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=philips+norelco+all+in+one+trimmer+9000&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get the All-in-One 9000 →</a>
+            <a href="https://www.amazon.com/s?k=philips+norelco+all+in+one+trimmer+9000&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get the All-in-One 9000 →</a>
             <a href="/products/philips-norelco-all-in-one-9000.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1563,7 +1620,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Excellent price for a 5-piece kit</li><li>Easy-to-read battery display</li><li>Good for beginners</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Blades dull faster than premium picks</li><li>Guards can slip on very thick beards</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=hatteker+5+in+1+beard+trimmer&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Hatteker 5-in-1 on Amazon →</a>
+            <a href="https://www.amazon.com/s?k=hatteker+5+in+1+beard+trimmer&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Hatteker 5-in-1 on Amazon →</a>
           </div>
         </div>
       </div>
@@ -1587,7 +1644,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Sharpest, most precise line-ups tested</li><li>Built for coarse and curly hair</li><li>Premium build quality</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Expensive</li><li>Overkill for casual trimming</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=bevel+pro+trimmer&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Check Bevel Pro Price →</a>
+            <a href="https://www.amazon.com/s?k=bevel+pro+trimmer&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Check Bevel Pro Price →</a>
             <a href="/products/bevel-pro-trimmer.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1612,7 +1669,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Barbershop-crisp line and edge work</li><li>Real cordless lithium-ion runtime (~2 hrs)</li><li>Trusted professional barber brand</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Not built for trimming beard length</li><li>Blades are extremely sharp — handle with care</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=andis+slimline+pro+li+trimmer&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Andis Slimline Pro Li →</a>
+            <a href="https://www.amazon.com/s?k=andis+slimline+pro+li+trimmer&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Andis Slimline Pro Li →</a>
           </div>
         </div>
       </div>
@@ -1636,7 +1693,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>58 length settings — far more granular than typical trimmers</li><li>Strong motor handles thick hair easily</li><li>Wet/dry, cordless or corded</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>No battery charge indicator</li><li>Bulky charging plug</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=panasonic+er-gb96-k+beard+trimmer&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Panasonic ER-GB96-K →</a>
+            <a href="https://www.amazon.com/s?k=panasonic+er-gb96-k+beard+trimmer&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Panasonic ER-GB96-K →</a>
           </div>
         </div>
       </div>
@@ -1660,7 +1717,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Genuinely dual-purpose — face and body</li><li>Low price point</li><li>11 guide combs included</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Plastic guide combs feel less durable</li><li>Some reports of inconsistent box contents</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=wahl+lithium+ion+total+beard+trimmer+9888&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Wahl Lithium Ion Trimmer →</a>
+            <a href="https://www.amazon.com/s?k=wahl+lithium+ion+total+beard+trimmer+9888&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get the Wahl Lithium Ion Trimmer →</a>
           </div>
         </div>
       </div>
@@ -1694,7 +1751,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Excellent value</li><li>Visible tint shows shaved areas</li><li>Good cushion for the price</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Contains fragrance — check if you're sensitive</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=gillettelabs+rapid+foaming+shave+gel&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get GilletteLabs Shave Gel →</a>
+            <a href="https://www.amazon.com/s?k=gillettelabs+rapid+foaming+shave+gel&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get GilletteLabs Shave Gel →</a>
             <a href="/products/gillettelabs-rapid-foaming-shave-gel.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1719,7 +1776,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Lowest irritation of any cream tested</li><li>Fragrance-free</li><li>Excellent glide, small amount goes far</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Less visible lather than foam</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=cremo+sensitive+skin+shave+cream&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Cremo Sensitive Skin Cream →</a>
+            <a href="https://www.amazon.com/s?k=cremo+sensitive+skin+shave+cream&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Cremo Sensitive Skin Cream →</a>
           </div>
         </div>
       </div>
@@ -1743,7 +1800,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Best hydration of any cream tested</li><li>Long-lasting tub</li><li>Classic masculine scent</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Non-foaming texture takes getting used to</li><li>Higher upfront price</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=duke+cannon+big+softy+shave+cream&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Duke Cannon Big Softy →</a>
+            <a href="https://www.amazon.com/s?k=duke+cannon+big+softy+shave+cream&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Duke Cannon Big Softy →</a>
           </div>
         </div>
       </div>
@@ -1767,7 +1824,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Dense, slick, long-lasting lather</li><li>Beloved classic barbershop scent</li><li>Heritage brand, strong reputation</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Requires a brush — not grab-and-go</li><li>Can feel dry if under-lathered</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=taylor+of+old+bond+street+sandalwood+shaving+soap&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Taylor of Old Bond Street Soap →</a>
+            <a href="https://www.amazon.com/s?k=taylor+of+old+bond+street+sandalwood+shaving+soap&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Taylor of Old Bond Street Soap →</a>
           </div>
         </div>
       </div>
@@ -1791,7 +1848,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Naturally-derived, fragrance-free formula</li><li>Cruelty-free</li><li>Widely available</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Not certified organic despite "natural" marketing</li><li>Takes more effort to lather than a foaming gel</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=every+man+jack+fragrance+free+shave+cream&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Every Man Jack Shave Cream →</a>
+            <a href="https://www.amazon.com/s?k=every+man+jack+fragrance+free+shave+cream&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Every Man Jack Shave Cream →</a>
           </div>
         </div>
       </div>
@@ -1815,7 +1872,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Extremely cheap per shave</li><li>Easy to lather for beginners</li><li>Widely stocked</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Thinner, less protective lather than premium soaps</li><li>Polarizing scent</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=van+der+hagen+shave+soap&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Van Der Hagen Shave Soap →</a>
+            <a href="https://www.amazon.com/s?k=van+der+hagen+shave+soap&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Van Der Hagen Shave Soap →</a>
           </div>
         </div>
       </div>
@@ -1849,7 +1906,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Alcohol-free, won't sting</li><li>Inexpensive relative to competitors</li><li>Fast-absorbing, non-greasy</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Mild scent may not suit everyone</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=proraso+aftershave+balm+sensitive+skin&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get Proraso Aftershave Balm →</a>
+            <a href="https://www.amazon.com/s?k=proraso+aftershave+balm+sensitive+skin&tag=gshave-20" class="card-cta primary" rel="nofollow sponsored" target="_blank">Get Proraso Aftershave Balm →</a>
             <a href="/products/proraso-aftershave-balm-sensitive-skin.html" style="display:block;text-align:center;margin-top:8px;font-size:0.82rem;color:var(--muted);">Read the full review →</a>
           </div>
         </div>
@@ -1874,7 +1931,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Best irritation relief tested</li><li>Organic, natural ingredient list</li><li>Premium, non-sticky finish</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Higher price point</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=brickell+mens+instant+relief+aftershave&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Brickell Instant Relief →</a>
+            <a href="https://www.amazon.com/s?k=brickell+mens+instant+relief+aftershave&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Brickell Instant Relief →</a>
           </div>
         </div>
       </div>
@@ -1898,7 +1955,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Refreshing cooling effect</li><li>Contains tea tree oil and shea butter</li><li>Great for summer / humid climates</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Menthol may be too strong for very sensitive skin</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=cremo+cooling+post+shave+balm&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Cremo Cooling Balm →</a>
+            <a href="https://www.amazon.com/s?k=cremo+cooling+post+shave+balm&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Cremo Cooling Balm →</a>
           </div>
         </div>
       </div>
@@ -1922,7 +1979,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Iconic barbershop scent</li><li>Extremely inexpensive per ounce</li><li>Doubles as a light antiseptic on nicks</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Contains alcohol — stings on sensitive skin</li><li>Not ideal if you're prone to razor burn</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=clubman+pinaud+classic+after+shave+lotion&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Clubman Pinaud →</a>
+            <a href="https://www.amazon.com/s?k=clubman+pinaud+classic+after+shave+lotion&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Clubman Pinaud →</a>
           </div>
         </div>
       </div>
@@ -1946,7 +2003,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Alcohol-free witch hazel formula</li><li>Lightweight, fast-absorbing, no residue</li><li>Doubles as a daily facial toner</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Less "cooling" or ritualistic than a dedicated splash</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=thayers+witch+hazel+toner&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Thayers Witch Hazel →</a>
+            <a href="https://www.amazon.com/s?k=thayers+witch+hazel+toner&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Thayers Witch Hazel →</a>
           </div>
         </div>
       </div>
@@ -1970,7 +2027,7 @@
               <div class="pros-block"><h4>Pros</h4><ul><li>Very inexpensive, widely available</li><li>Chamomile + vitamin E formula, light fragrance</li><li>Gentle enough for daily/sensitive use</li></ul></div>
               <div class="cons-block"><h4>Cons</h4><ul><li>Less potent irritation relief than premium picks</li></ul></div>
             </div>
-            <a href="https://www.amazon.ca/s?k=nivea+men+sensitive+post+shave+balm&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Nivea Men Sensitive Balm →</a>
+            <a href="https://www.amazon.com/s?k=nivea+men+sensitive+post+shave+balm&tag=gshave-20" class="card-cta outline" rel="nofollow sponsored" target="_blank">Get Nivea Men Sensitive Balm →</a>
           </div>
         </div>
       </div>
@@ -2021,7 +2078,7 @@
     <div class="cta-banner">
       <h2>Ready for Your Best Shave?</h2>
       <p>Start with our top-rated pick and you'll notice the difference within your first shave. Most guys never go back.</p>
-      <a href="https://www.amazon.ca/s?k=gillette+fusion5+proglide+razor&tag=gshave-20" class="btn-hero" rel="nofollow sponsored" target="_blank">Get Our #1 Pick — See Current Offer →</a>
+      <a href="https://www.amazon.com/s?k=gillette+fusion5+proglide+razor&tag=gshave-20" class="btn-hero" rel="nofollow sponsored" target="_blank">Get Our #1 Pick — See Current Offer →</a>
     </div>
 
 
@@ -2055,14 +2112,7 @@
     <!-- EMAIL CAPTURE -->
     <div class="email-capture">
       <h3>Get our monthly shaving tips &amp; deals</h3>
-      <p>Blade deals, technique guides, and new product reviews — no spam, unsubscribe any time.</p>
-      <form class="email-form" action="https://cheapeatsguelph.us2.list-manage.com/subscribe/post?u=567cda6751b8e8967d9ee6807&amp;id=8e060177a8&amp;f_id=003585e1f0" method="post" target="_blank" novalidate>
-        <input type="email" name="EMAIL" placeholder="your@email.com" aria-label="Email address" required>
-        <div hidden=""><input type="hidden" name="tags" value="493100"></div>
-        <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_567cda6751b8e8967d9ee6807_8e060177a8" tabindex="-1" value=""></div>
-        <button type="submit">Subscribe →</button>
-      </form>
-      <div class="email-fine">We respect your privacy. No spam, ever.</div>
+      <p>Sign-ups are temporarily paused while we set up our mailing list — check back soon.</p>
     </div>
 
 
@@ -2145,27 +2195,27 @@
         return {title: '🏆 Your match: Merkur 34C + Astra Blades',
           body: 'You'll save the most money long-term — $0.10–0.15 per blade vs $4.50 for Gillette Fusion. There's a 2–3 week learning curve, but the closeness is unmatched. 100 blades for ~$11 gives you a 3-year supply.',
           cta: 'Get the Merkur 34C on Amazon →',
-          url: 'https://www.amazon.ca/s?k=merkur+34c+safety+razor&tag=gshave-20'};
+          url: 'https://www.amazon.com/s?k=merkur+34c+safety+razor&tag=gshave-20'};
       }
       // Ingrown/coarse → SkinGuard
       if (a2 === 'patchy' || (a2 === 'coarse' && a1 === 'irritation')) {
         return {title: '🏆 Your match: Gillette SkinGuard',
           body: 'The fin guard between the blades reduces direct blade contact — exactly what prevents ingrown hairs and razor bumps on coarse or curly hair. Dermatologists recommend guarded razors for pseudofolliculitis barbae.',
           cta: 'Check SkinGuard Price →',
-          url: 'https://www.amazon.ca/s?k=gillette+skinguard+razor&tag=gshave-20'};
+          url: 'https://www.amazon.com/s?k=gillette+skinguard+razor&tag=gshave-20'};
       }
       // Convenience + normal → Fusion5 ProGlide
       if (a3 === 'auto' || a1 === 'convenience' || a1 === 'quality') {
         return {title: '🏆 Your match: Gillette Fusion5 ProGlide',
           body: 'Familiar cartridge format, zero learning curve, and sold everywhere so you never have to hunt for refills. Five tightly-spaced blades give an ultra-close shave with no setup required.',
           cta: 'Get the Fusion5 ProGlide →',
-          url: 'https://www.amazon.ca/s?k=gillette+fusion5+proglide+razor&tag=gshave-20'};
+          url: 'https://www.amazon.com/s?k=gillette+fusion5+proglide+razor&tag=gshave-20'};
       }
       // Default → BIC Flex 5 Hybrid
       return {title: '🏆 Your match: BIC Flex 5 Hybrid',
         body: 'A flexible 5-blade head and a comfortable ergonomic grip at the lowest per-shave cost of any cartridge-style razor we recommend — a smart pick if budget matters more than chasing the closest possible shave.',
         cta: 'Get the BIC Flex 5 →',
-        url: 'https://www.amazon.ca/s?k=bic+flex+5+hybrid+razor&tag=gshave-20'};
+        url: 'https://www.amazon.com/s?k=bic+flex+5+hybrid+razor&tag=gshave-20'};
     }
     function quizRestart() {
       quizAnswers = {};
@@ -2235,6 +2285,7 @@
       <a href='/privacy'>Privacy Policy</a>
       <a href='/disclaimer'>Disclaimer</a>
       <a href='/about'>About</a>
+      <button class="cc-prefs-link footer-link-btn">Cookie Preferences</button>
     </div>
     <div class="footer-copy">© 2026 GoodShave.com — All rights reserved.</div>
   <div class="footer-built-by" style="text-align:center;margin-top:8px;font-size:0.78rem;opacity:0.6;">Built by <a href="https://overhauled.ai" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Overhauled.ai</a></div>
